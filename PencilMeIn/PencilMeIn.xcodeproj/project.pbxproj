@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		067DF4611BA4DB88001C8261 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45C1BA4DB88001C8261 /* Business.swift */; };
+		067DF4621BA4DB88001C8261 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45C1BA4DB88001C8261 /* Business.swift */; };
+		067DF4631BA4DB88001C8261 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45D1BA4DB88001C8261 /* Consumer.swift */; };
+		067DF4641BA4DB88001C8261 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45D1BA4DB88001C8261 /* Consumer.swift */; };
+		067DF4651BA4DB88001C8261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45E1BA4DB88001C8261 /* Event.swift */; };
+		067DF4661BA4DB88001C8261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45E1BA4DB88001C8261 /* Event.swift */; };
+		067DF4671BA4DB88001C8261 /* PhoneParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45F1BA4DB88001C8261 /* PhoneParser.swift */; };
+		067DF4681BA4DB88001C8261 /* PhoneParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45F1BA4DB88001C8261 /* PhoneParser.swift */; };
+		067DF4691BA4DB88001C8261 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF4601BA4DB88001C8261 /* ServerController.swift */; };
+		067DF46A1BA4DB88001C8261 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF4601BA4DB88001C8261 /* ServerController.swift */; };
+		067DF46D1BA4DBA1001C8261 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF46C1BA4DBA1001C8261 /* Parse.framework */; };
+		067DF46E1BA4DBA1001C8261 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF46C1BA4DBA1001C8261 /* Parse.framework */; };
+		067DF4701BA4DBA3001C8261 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF46F1BA4DBA3001C8261 /* Bolts.framework */; };
+		067DF4711BA4DBA3001C8261 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF46F1BA4DBA3001C8261 /* Bolts.framework */; };
+		067DF4731BA4DBB5001C8261 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF4721BA4DBB5001C8261 /* AudioToolbox.framework */; };
+		067DF4751BA4DBBC001C8261 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF4741BA4DBBC001C8261 /* SystemConfiguration.framework */; };
+		067DF4771BA4DBC4001C8261 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF4761BA4DBC4001C8261 /* libsqlite3.dylib */; };
 		06BC5B3D1BA411510093DF18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC5B3C1BA411510093DF18 /* AppDelegate.swift */; };
 		06BC5B491BA411510093DF18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BC5B471BA411510093DF18 /* LaunchScreen.xib */; };
 		06BC5B551BA411510093DF18 /* PencilMeInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC5B541BA411510093DF18 /* PencilMeInTests.swift */; };
@@ -34,6 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		067DF45C1BA4DB88001C8261 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		067DF45D1BA4DB88001C8261 /* Consumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		067DF45E1BA4DB88001C8261 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		067DF45F1BA4DB88001C8261 /* PhoneParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneParser.swift; sourceTree = "<group>"; };
+		067DF4601BA4DB88001C8261 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
+		067DF46C1BA4DBA1001C8261 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		067DF46F1BA4DBA3001C8261 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		067DF4721BA4DBB5001C8261 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		067DF4741BA4DBBC001C8261 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		067DF4761BA4DBC4001C8261 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		06BC5B371BA411510093DF18 /* PencilMeIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PencilMeIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BC5B3B1BA411510093DF18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06BC5B3C1BA411510093DF18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +86,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067DF4771BA4DBC4001C8261 /* libsqlite3.dylib in Frameworks */,
+				067DF4751BA4DBBC001C8261 /* SystemConfiguration.framework in Frameworks */,
+				067DF4731BA4DBB5001C8261 /* AudioToolbox.framework in Frameworks */,
+				067DF46D1BA4DBA1001C8261 /* Parse.framework in Frameworks */,
+				067DF4701BA4DBA3001C8261 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,15 +98,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067DF46E1BA4DBA1001C8261 /* Parse.framework in Frameworks */,
+				067DF4711BA4DBA3001C8261 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		067DF45B1BA4DB88001C8261 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				067DF45C1BA4DB88001C8261 /* Business.swift */,
+				067DF45D1BA4DB88001C8261 /* Consumer.swift */,
+				067DF45E1BA4DB88001C8261 /* Event.swift */,
+				067DF45F1BA4DB88001C8261 /* PhoneParser.swift */,
+				067DF4601BA4DB88001C8261 /* ServerController.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		067DF46B1BA4DB95001C8261 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				067DF46F1BA4DBA3001C8261 /* Bolts.framework */,
+				067DF46C1BA4DBA1001C8261 /* Parse.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
 		06BC5B2E1BA411510093DF18 = {
 			isa = PBXGroup;
 			children = (
+				067DF4761BA4DBC4001C8261 /* libsqlite3.dylib */,
+				067DF4741BA4DBBC001C8261 /* SystemConfiguration.framework */,
+				067DF4721BA4DBB5001C8261 /* AudioToolbox.framework */,
 				06BC5B391BA411510093DF18 /* PencilMeIn */,
 				06BC5B511BA411510093DF18 /* PencilMeInTests */,
 				06BC5B381BA411510093DF18 /* Products */,
@@ -93,6 +151,8 @@
 		06BC5B391BA411510093DF18 /* PencilMeIn */ = {
 			isa = PBXGroup;
 			children = (
+				067DF46B1BA4DB95001C8261 /* Dependencies */,
+				067DF45B1BA4DB88001C8261 /* Backend */,
 				06BC5B3C1BA411510093DF18 /* AppDelegate.swift */,
 				798919081BA41B0900EFD5FA /* Main.storyboard */,
 				798919091BA41B0900EFD5FA /* ScheduleViewController.swift */,
@@ -239,10 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067DF4671BA4DB88001C8261 /* PhoneParser.swift in Sources */,
+				067DF4631BA4DB88001C8261 /* Consumer.swift in Sources */,
 				06BC5B3D1BA411510093DF18 /* AppDelegate.swift in Sources */,
 				7989190F1BA41B0900EFD5FA /* EmployeeViewController.swift in Sources */,
 				7989190E1BA41B0900EFD5FA /* ScheduleViewController.swift in Sources */,
+				067DF4651BA4DB88001C8261 /* Event.swift in Sources */,
+				067DF4611BA4DB88001C8261 /* Business.swift in Sources */,
 				798919101BA41B0900EFD5FA /* SettingsViewController.swift in Sources */,
+				067DF4691BA4DB88001C8261 /* ServerController.swift in Sources */,
 				79F80A591BA46E70008DEBEE /* AppointmentTableCell.swift in Sources */,
 				7912F0601BA451A600758CE8 /* CustomerSettingsViewController.swift in Sources */,
 				7912F0621BA451C900758CE8 /* CustomerMessagesViewController.swift in Sources */,
@@ -255,7 +320,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067DF4681BA4DB88001C8261 /* PhoneParser.swift in Sources */,
+				067DF4661BA4DB88001C8261 /* Event.swift in Sources */,
+				067DF46A1BA4DB88001C8261 /* ServerController.swift in Sources */,
+				067DF4641BA4DB88001C8261 /* Consumer.swift in Sources */,
 				06BC5B551BA411510093DF18 /* PencilMeInTests.swift in Sources */,
+				067DF4621BA4DB88001C8261 /* Business.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +440,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PencilMeIn",
+				);
 				INFOPLIST_FILE = PencilMeIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -383,6 +457,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PencilMeIn",
+				);
 				INFOPLIST_FILE = PencilMeIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,6 +475,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/PencilMeIn",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -416,6 +495,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/PencilMeIn",
 				);
 				INFOPLIST_FILE = PencilMeInTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
