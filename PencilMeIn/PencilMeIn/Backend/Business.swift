@@ -21,37 +21,51 @@ class Business: PFObject, PFSubclassing {
     }
     
     static func getUserBusiness(completion: (object: Business?) -> Void) {
-        var business: Business?
         let query = PFQuery(className: "Business")
         query.whereKey("user", equalTo: PFUser.currentUser()!).getFirstObjectInBackgroundWithBlock {
             (object: PFObject?, error: NSError?) -> Void in
+            
+            let business: Business?
+            
             if object != nil {
                 println("Business.createBusiness: Huzzah!")
                 business = object as? Business
             } else {
                 println("Business.createBusiness: Nuzzah.")
+                business = nil
             }
+            
+            completion(object: business)
         }
-        completion(object: business)
     }
     
     func getEvents(completion: (object: NSArray?) -> Void) {
         var query: PFQuery = PFQuery(className: "BusinessEventJoinTable")
         query.whereKey("business", equalTo: self)
-        var data: NSMutableArray?
+        query.includeKey("event")
         query.findObjectsInBackgroundWithBlock{
             (objects: [AnyObject]?, error: NSError?) -> Void in
+            
+            let array: NSMutableArray?
+            
             if let objects = objects {
-                data = NSMutableArray()
+                
+                array = NSMutableArray()
+                
                 for o in objects {
                     // o is an entry in the Follow table
                     // to get the user, we get the object with the to key
                     var otherUse: Event = o.objectForKey("event") as! Event
-                    data!.addObject(otherUse)
+                    array!.addObject(otherUse)
                 }
+                
+            } else {
+                
+                array = nil
             }
+            
+            completion(object: array)
         }
-        completion(object: NSArray(array: data!))
     }
     
     func addEvent(event: Event) {
