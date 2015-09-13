@@ -16,22 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
         Parse.setApplicationId("7vaYv6gbQUX3F2W51ZedeonAay85bVrpHVuqMUSW", clientKey: "0LoRvNSv2Bn5LL3chQ6wG0njivjPF3Aj0OGGR760")
         
-        client = ServerController()
+        
+        var client:ServerController = ServerController()
         
         //For creating user accounts, look at these functions:
         //////////////////////////////////////////////////////////////////////////////
-        client?.logInUser("test", password: "pass")
+        client.logInUser("test", password: "pass")
+        
         
         //while(PFUser.currentUser() == nil) {}
         
         //client?.signUpUser(<#username: String#>, password: <#String#>, email: <#String#>)
         
-        let business = Business.createBusiness("TEST", keywords: ["volatile", "test"], address: "-1")
-        
+
+        // Override point for customization after application launch.
         return true
     }
 
@@ -59,4 +59,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

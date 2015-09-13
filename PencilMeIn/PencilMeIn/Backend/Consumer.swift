@@ -7,7 +7,10 @@ class Consumer: PFObject, PFSubclassing {
     @NSManaged var email: String
     @NSManaged var phone: String
     
-    //Initialize as the user!
+    override init() {
+        super.init()
+    }
+    
     static func createConsumer (fullName: String!, email: String!, phone: String!) -> Consumer {
         var newObj: Consumer = Consumer()
         newObj.user = PFUser.currentUser()!
@@ -16,9 +19,9 @@ class Consumer: PFObject, PFSubclassing {
         newObj.phone = PhoneParser.parse(phone)
         return newObj
     }
-    
-    func getUserConsumer() -> Consumer {
-        var consumer: Consumer? = nil
+
+    static func getUserConsumer(completion: (object: Consumer?) -> Void) {
+        var consumer: Consumer?
         let query = PFQuery(className: "Consumer")
         query.whereKey("user", equalTo: PFUser.currentUser()!).getFirstObjectInBackgroundWithBlock {
             (object: PFObject?, error: NSError?) -> Void in
@@ -27,28 +30,28 @@ class Consumer: PFObject, PFSubclassing {
                 consumer = object as? Consumer
             } else {
                 println("Consumer.createConsumer: Nuzzah.")
-                consumer = Consumer()
             }
         }
-        return consumer!
+        completion(object: consumer)
     }
     
-    func getEvents() -> NSArray {
+    func getEvents(completion: (object: NSArray?) -> Void) {
         var query: PFQuery = PFQuery(className: "ConsumerEventJoinTable")
         query.whereKey("consumer", equalTo: self)
-        var data: NSMutableArray = NSMutableArray()
-        query.findObjectsInBackgroundWithBlock{
+        var data: NSMutableArray?
+        query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if let objects = objects {
+                data = NSMutableArray()
                 for o in objects {
                     // o is an entry in the Follow table
                     // to get the user, we get the object with the to key
-                    let otherUse = o.objectForKey("event") as! Event
-                    data.addObject(otherUse)
+                    var otherUse: Event = o.objectForKey("event") as! Event
+                    data!.addObject(otherUse)
                 }
             }
         }
-        return NSArray(array: data)
+        completion(object: NSArray(array: data!))
     }
     
     func attachToEvent(event: Event) {
@@ -59,41 +62,33 @@ class Consumer: PFObject, PFSubclassing {
         joinTable.saveInBackground()
     }
     
-    override init() {
-        super.init()
-        self.fullName = ""
-        self.email = ""
-        self.phone = ""
-        
-    }
-    
-    func getFromServer(objectId: String!) {
-        var query = PFQuery(className:"Consumer")
+    func getFromServer(objectId: String!, completion: (object: Consumer?) -> Void) {
+        let query = PFQuery(className: "Consumer")
+        var consumer : Consumer?
         query.getObjectInBackgroundWithId(objectId) {
-            (result: PFObject?, error: NSError?) -> Void in
-            if error == nil && result != nil {
-                let fullName = result?.objectForKey("fullName") as! String
-                let email = result?.objectForKey("email") as! String
-                let phone = result?.objectForKey("phone") as! String
-                self.fullName = fullName
-                self.email = email
-                self.phone = phone
+            (object: PFObject?, error: NSError?) -> Void in
+            if error == nil && object != nil {
+                println("success")
+                consumer = object as? Consumer
             } else {
-                println(error)
+                println("error")
             }
         }
+        completion(object: consumer)
     }
     
-    func putToServer() {
+    func putToServer(completion: (object: Consumer) -> Void) {
         var user = PFUser.currentUser()!
         self.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-                println("Huzzah!")
+                println("Consumer.putToServer: Huzzah!")
+            } else {
+                println("Consumer.putToServer: Nuzzah")
             }
         }
+        completion(object: self)
     }
-    
     
     //Private class functions
     override class func initialize() {
@@ -104,7 +99,6 @@ class Consumer: PFObject, PFSubclassing {
             self.registerSubclass()
         }
     }
-    
     static func parseClassName() -> String {
         return "Consumer"
     }
