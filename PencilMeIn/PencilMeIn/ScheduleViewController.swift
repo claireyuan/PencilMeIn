@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class ScheduleViewController: UIViewController {
+class ScheduleViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class ScheduleViewController: UIViewController {
         }
     }
     
+
 }
 
 
