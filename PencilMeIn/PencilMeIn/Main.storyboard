@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xze-7e-3MN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" selectedImage="calendar" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="Schedule" id="xHV-GF-0nV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0zC-Gd-txC">
                             <connections>
@@ -70,7 +70,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="eventNameChanged:" destination="Lr8-VW-Lch" eventType="editingDidEnd" id="4IY-Wa-HRy"/>
+                                    <action selector="eventNameChanged:" destination="Lr8-VW-Lch" eventType="editingChanged" id="plu-t1-j3m"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csO-3z-cgn">
@@ -107,9 +107,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Event" id="ZVU-Od-XsV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jBh-ue-fwr"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cje-vI-Ee9"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jBh-ue-fwr">
+                            <connections>
+                                <action selector="cancel:" destination="Lr8-VW-Lch" id="UGz-S7-6h2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cje-vI-Ee9">
+                            <connections>
+                                <action selector="save:" destination="Lr8-VW-Lch" id="uz7-pB-vBp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="endDatePicker" destination="LRV-Yb-r8v" id="Kue-tr-dfQ"/>
+                        <outlet property="saveButton" destination="cje-vI-Ee9" id="in7-gK-zbf"/>
+                        <outlet property="startDatePicker" destination="VnA-mM-Okx" id="nvc-9O-ZuU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hg4-1y-JFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
