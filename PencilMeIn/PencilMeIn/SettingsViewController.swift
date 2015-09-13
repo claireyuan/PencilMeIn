@@ -23,9 +23,26 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func businessNameChanged(sender: UITextField) {
+        var businessName: String = sender.text
+        
+        if businessName == "" {
+            var alert = UIAlertController(title: "Must input business name", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                sender.text = ""
+            }))
+            
+            presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func keyWordsEdited(sender: UITextField) {
+        var keyWords: [String] = sender.text.componentsSeparatedByString(",")
+        
+        var i = 0
+        while i < keyWords.count {
+            keyWords[i] = keyWords[i].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        }
     }
     
     @IBAction func rescheduleNumberChanged(sender: UISlider) {
