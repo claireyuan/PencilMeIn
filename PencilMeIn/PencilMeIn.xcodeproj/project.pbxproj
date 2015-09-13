@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		067DF4611BA4DB88001C8261 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45C1BA4DB88001C8261 /* Business.swift */; };
-		067DF4621BA4DB88001C8261 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45C1BA4DB88001C8261 /* Business.swift */; };
 		067DF4631BA4DB88001C8261 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45D1BA4DB88001C8261 /* Consumer.swift */; };
-		067DF4641BA4DB88001C8261 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45D1BA4DB88001C8261 /* Consumer.swift */; };
 		067DF4651BA4DB88001C8261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45E1BA4DB88001C8261 /* Event.swift */; };
-		067DF4661BA4DB88001C8261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45E1BA4DB88001C8261 /* Event.swift */; };
 		067DF4671BA4DB88001C8261 /* PhoneParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45F1BA4DB88001C8261 /* PhoneParser.swift */; };
-		067DF4681BA4DB88001C8261 /* PhoneParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45F1BA4DB88001C8261 /* PhoneParser.swift */; };
 		067DF4691BA4DB88001C8261 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF4601BA4DB88001C8261 /* ServerController.swift */; };
-		067DF46A1BA4DB88001C8261 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF4601BA4DB88001C8261 /* ServerController.swift */; };
 		067DF46D1BA4DBA1001C8261 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF46C1BA4DBA1001C8261 /* Parse.framework */; };
 		067DF46E1BA4DBA1001C8261 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF46C1BA4DBA1001C8261 /* Parse.framework */; };
 		067DF4701BA4DBA3001C8261 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF46F1BA4DBA3001C8261 /* Bolts.framework */; };
@@ -24,6 +19,11 @@
 		067DF4731BA4DBB5001C8261 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF4721BA4DBB5001C8261 /* AudioToolbox.framework */; };
 		067DF4751BA4DBBC001C8261 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF4741BA4DBBC001C8261 /* SystemConfiguration.framework */; };
 		067DF4771BA4DBC4001C8261 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 067DF4761BA4DBC4001C8261 /* libsqlite3.dylib */; };
+		067DF4781BA53733001C8261 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45C1BA4DB88001C8261 /* Business.swift */; };
+		067DF4791BA53733001C8261 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45D1BA4DB88001C8261 /* Consumer.swift */; };
+		067DF47A1BA53733001C8261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45E1BA4DB88001C8261 /* Event.swift */; };
+		067DF47B1BA53733001C8261 /* PhoneParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45F1BA4DB88001C8261 /* PhoneParser.swift */; };
+		067DF47C1BA53733001C8261 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF4601BA4DB88001C8261 /* ServerController.swift */; };
 		06BC5B3D1BA411510093DF18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC5B3C1BA411510093DF18 /* AppDelegate.swift */; };
 		06BC5B491BA411510093DF18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BC5B471BA411510093DF18 /* LaunchScreen.xib */; };
 		06BC5B551BA411510093DF18 /* PencilMeInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC5B541BA411510093DF18 /* PencilMeInTests.swift */; };
@@ -320,12 +320,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				067DF4681BA4DB88001C8261 /* PhoneParser.swift in Sources */,
-				067DF4661BA4DB88001C8261 /* Event.swift in Sources */,
-				067DF46A1BA4DB88001C8261 /* ServerController.swift in Sources */,
-				067DF4641BA4DB88001C8261 /* Consumer.swift in Sources */,
+				067DF47B1BA53733001C8261 /* PhoneParser.swift in Sources */,
+				067DF47A1BA53733001C8261 /* Event.swift in Sources */,
+				067DF47C1BA53733001C8261 /* ServerController.swift in Sources */,
+				067DF4791BA53733001C8261 /* Consumer.swift in Sources */,
 				06BC5B551BA411510093DF18 /* PencilMeInTests.swift in Sources */,
-				067DF4621BA4DB88001C8261 /* Business.swift in Sources */,
+				067DF4781BA53733001C8261 /* Business.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
