@@ -7,38 +7,19 @@ class Event: PFObject, PFSubclassing {
     @NSManaged var startTime: NSDate
     @NSManaged var endTime: NSDate
     
-    @NSManaged var id: String
-    
-    init (title: String!, employeeName: String!, startTime: NSDate!, endTime: NSDate!) {
-        super.init()
-        self.title = title
-        self.employeeName = employeeName
-        self.startTime = startTime
-        self.endTime = endTime
+    static func createEvent(title: String!, employeeName: String!, startTime: NSDate!, endTime: NSDate!, business: Business, consumer: Consumer) -> Event {
+        var newObj: Event = Event()
+        newObj.title = title
+        newObj.employeeName = employeeName
+        newObj.startTime = startTime
+        newObj.endTime = endTime
+        return newObj
     }
-    
-    init (objectId: String!) {
-        super.init()
-        getFromServer(objectId)
-    }
-    
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
-    
-    static func parseClassName() -> String {
-        return "Event"
-    }
-    
+
     func getBusiness() -> Business {
         var query: PFQuery = PFQuery(className: "BusinessEventJoinTable")
         query.whereKey("event", equalTo: self)
-        var retVal: Business = Business(name: "", keywords: [""], address: "")
+        var retVal: Business = Business()
         query.findObjectsInBackgroundWithBlock{
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if let objects = objects {
@@ -56,7 +37,7 @@ class Event: PFObject, PFSubclassing {
     func getConsumer() -> Consumer {
         var query: PFQuery = PFQuery(className: "ConsumerEventJoinTable")
         query.whereKey("event", equalTo: self)
-        var retVal: Consumer = Consumer(fullName: "", email: "", phone: "0000000000")
+        var retVal: Consumer = Consumer()
         query.findObjectsInBackgroundWithBlock{
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if let objects = objects {
@@ -69,6 +50,14 @@ class Event: PFObject, PFSubclassing {
             }
         }
         return retVal
+    }
+    
+    override init () {
+        super.init()
+        self.title = ""
+        self.employeeName = ""
+        self.startTime = NSDate()
+        self.endTime = NSDate()
     }
     
     func getFromServer(objectId: String!) {
@@ -85,8 +74,6 @@ class Event: PFObject, PFSubclassing {
                 self.employeeName = employeeName
                 self.startTime = startTime
                 self.endTime = endTime
-                
-                self.id = objectId
             } else {
                 println(error)
             }
@@ -101,5 +88,20 @@ class Event: PFObject, PFSubclassing {
                 println("Huzzah!")
             }
         }
+    }
+    
+    
+    //Private class functions
+    override class func initialize() {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
+            self.registerSubclass()
+        }
+    }
+    
+    static func parseClassName() -> String {
+        return "Event"
     }
 }

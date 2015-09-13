@@ -7,15 +7,31 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var client: ServerController?
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.setApplicationId("7vaYv6gbQUX3F2W51ZedeonAay85bVrpHVuqMUSW", clientKey: "0LoRvNSv2Bn5LL3chQ6wG0njivjPF3Aj0OGGR760")
+        
+        client = ServerController()
+        
+        //For creating user accounts, look at these functions:
+        //////////////////////////////////////////////////////////////////////////////
+        client?.logInUser("test", password: "pass")
+        
+        //while(PFUser.currentUser() == nil) {}
+        
+        //client?.signUpUser(<#username: String#>, password: <#String#>, email: <#String#>)
+        
+        let business = Business.createBusiness("TEST", keywords: ["volatile", "test"], address: "-1")
+        
         return true
     }
 

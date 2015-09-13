@@ -6,32 +6,31 @@ class Consumer: PFObject, PFSubclassing {
     @NSManaged var fullName: String
     @NSManaged var email: String
     @NSManaged var phone: String
-    @NSManaged var id: String
     
-    init (fullName: String!, email: String!, phone: String!) {
-        super.init()
-        self.user = PFUser.currentUser()!
-        self.fullName = fullName
-        self.email = email
-        self.phone = PhoneParser.parse(phone)
+    //Initialize as the user!
+    static func createConsumer (fullName: String!, email: String!, phone: String!) -> Consumer {
+        var newObj: Consumer = Consumer()
+        newObj.user = PFUser.currentUser()!
+        newObj.fullName = fullName
+        newObj.email = email
+        newObj.phone = PhoneParser.parse(phone)
+        return newObj
     }
     
-    init (objectId: String!) {
-        super.init()
-        getFromServer(objectId)
-    }
-    
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
+    func getUserConsumer() -> Consumer {
+        var consumer: Consumer? = nil
+        let query = PFQuery(className: "Consumer")
+        query.whereKey("user", equalTo: PFUser.currentUser()!).getFirstObjectInBackgroundWithBlock {
+            (object: PFObject?, error: NSError?) -> Void in
+            if object != nil {
+                println("Consumer.createConsumer: Huzzah!")
+                consumer = object as? Consumer
+            } else {
+                println("Consumer.createConsumer: Nuzzah.")
+                consumer = Consumer()
+            }
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
-    }
-    
-    static func parseClassName() -> String {
-        return "Consumer"
+        return consumer!
     }
     
     func getEvents() -> NSArray {
@@ -52,11 +51,20 @@ class Consumer: PFObject, PFSubclassing {
         return NSArray(array: data)
     }
     
-    func addEvent(event: Event) {
+    func attachToEvent(event: Event) {
+        event.saveInBackground()
         let joinTable = PFObject(className: "ConsumerEventJoinTable")
         joinTable.setObject(self, forKey: "consumer")
         joinTable.setObject(event, forKey: "event")
         joinTable.saveInBackground()
+    }
+    
+    override init() {
+        super.init()
+        self.fullName = ""
+        self.email = ""
+        self.phone = ""
+        
     }
     
     func getFromServer(objectId: String!) {
@@ -70,7 +78,6 @@ class Consumer: PFObject, PFSubclassing {
                 self.fullName = fullName
                 self.email = email
                 self.phone = phone
-                self.id = objectId
             } else {
                 println(error)
             }
@@ -86,4 +93,20 @@ class Consumer: PFObject, PFSubclassing {
             }
         }
     }
+    
+    
+    //Private class functions
+    override class func initialize() {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
+            self.registerSubclass()
+        }
+    }
+    
+    static func parseClassName() -> String {
+        return "Consumer"
+    }
+
 }
