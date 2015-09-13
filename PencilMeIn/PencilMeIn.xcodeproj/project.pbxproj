@@ -30,6 +30,8 @@
 		7912F05C1BA4515500758CE8 /* CustomerScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912F05B1BA4515500758CE8 /* CustomerScheduleViewController.swift */; };
 		7912F0601BA451A600758CE8 /* CustomerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912F05F1BA451A600758CE8 /* CustomerSettingsViewController.swift */; };
 		7912F0621BA451C900758CE8 /* CustomerMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912F0611BA451C900758CE8 /* CustomerMessagesViewController.swift */; };
+		79347C221BA5433300978193 /* pmi_login_live.png in Resources */ = {isa = PBXBuildFile; fileRef = 79347C211BA5433300978193 /* pmi_login_live.png */; };
+		79347C261BA54DE300978193 /* MSCollectionViewCalendarLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 79347C251BA54DE300978193 /* MSCollectionViewCalendarLayout.m */; };
 		79566CB41BA4B5AC0019947B /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79566CB31BA4B5AC0019947B /* AddEventViewController.swift */; };
 		79566CB61BA4BCC80019947B /* pmi_appicon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */; };
 		7989190D1BA41B0900EFD5FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798919081BA41B0900EFD5FA /* Main.storyboard */; };
@@ -71,6 +73,9 @@
 		7912F05B1BA4515500758CE8 /* CustomerScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerScheduleViewController.swift; sourceTree = "<group>"; };
 		7912F05F1BA451A600758CE8 /* CustomerSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerSettingsViewController.swift; sourceTree = "<group>"; };
 		7912F0611BA451C900758CE8 /* CustomerMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMessagesViewController.swift; sourceTree = "<group>"; };
+		79347C211BA5433300978193 /* pmi_login_live.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmi_login_live.png; sourceTree = "<group>"; };
+		79347C241BA54DE300978193 /* MSCollectionViewCalendarLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCollectionViewCalendarLayout.h; sourceTree = "<group>"; };
+		79347C251BA54DE300978193 /* MSCollectionViewCalendarLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollectionViewCalendarLayout.m; sourceTree = "<group>"; };
 		79566CB31BA4B5AC0019947B /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmi_appicon_180x180.png; sourceTree = "<group>"; };
 		798919081BA41B0900EFD5FA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +135,7 @@
 		06BC5B2E1BA411510093DF18 = {
 			isa = PBXGroup;
 			children = (
+				79347C231BA54DE300978193 /* MSCollectionViewCalendarLayout */,
 				067DF4761BA4DBC4001C8261 /* libsqlite3.dylib */,
 				067DF4741BA4DBBC001C8261 /* SystemConfiguration.framework */,
 				067DF4721BA4DBB5001C8261 /* AudioToolbox.framework */,
@@ -161,6 +167,7 @@
 				7989190B1BA41B0900EFD5FA /* SettingsViewController.swift */,
 				79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */,
 				7989190C1BA41B0900EFD5FA /* Images.xcassets */,
+				79347C211BA5433300978193 /* pmi_login_live.png */,
 				06BC5B471BA411510093DF18 /* LaunchScreen.xib */,
 				06BC5B3A1BA411510093DF18 /* Supporting Files */,
 				7912F05B1BA4515500758CE8 /* CustomerScheduleViewController.swift */,
@@ -194,6 +201,15 @@
 				06BC5B531BA411510093DF18 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79347C231BA54DE300978193 /* MSCollectionViewCalendarLayout */ = {
+			isa = PBXGroup;
+			children = (
+				79347C241BA54DE300978193 /* MSCollectionViewCalendarLayout.h */,
+				79347C251BA54DE300978193 /* MSCollectionViewCalendarLayout.m */,
+			);
+			path = MSCollectionViewCalendarLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +297,7 @@
 				798919111BA41B0900EFD5FA /* Images.xcassets in Resources */,
 				06BC5B491BA411510093DF18 /* LaunchScreen.xib in Resources */,
 				79566CB61BA4BCC80019947B /* pmi_appicon_180x180.png in Resources */,
+				79347C221BA5433300978193 /* pmi_login_live.png in Resources */,
 				7989190D1BA41B0900EFD5FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +321,7 @@
 				06BC5B3D1BA411510093DF18 /* AppDelegate.swift in Sources */,
 				7989190F1BA41B0900EFD5FA /* EmployeeViewController.swift in Sources */,
 				7989190E1BA41B0900EFD5FA /* ScheduleViewController.swift in Sources */,
+				79347C261BA54DE300978193 /* MSCollectionViewCalendarLayout.m in Sources */,
 				067DF4651BA4DB88001C8261 /* Event.swift in Sources */,
 				067DF4611BA4DB88001C8261 /* Business.swift in Sources */,
 				798919101BA41B0900EFD5FA /* SettingsViewController.swift in Sources */,
