@@ -34,13 +34,14 @@ class LoginViewController: UIViewController {
                 
                 Business.getFromServer { (object) -> Void in
                     if let business = object {
-                        // we have a business
-                        self.performSegueWithIdentifier("loginToBusiness", sender: sender)
+                        self.business = business
                         
                     } else {
                         // we don't :(
                         self.business = Business.createBusiness("Test Business", keywords: NSArray(array: ["placeholder", "professional", "fun"]), address: "This be the address")
                     }
+                    self.performSegueWithIdentifier("loginToBusiness", sender: sender)
+
                 }
                 
             } else {
@@ -60,7 +61,7 @@ class LoginViewController: UIViewController {
         
         if( segue.identifier == "loginToBusiness") {
             let tabBarController = segue.destinationViewController as! UITabBarController
-            let svc = tabBarController.viewControllers?[0].viewControllers?[0] as! ScheduleViewController
+            let svc = tabBarController.viewControllers?[1].viewControllers?[0] as! ScheduleViewController
             svc.business = business
         }
     }
