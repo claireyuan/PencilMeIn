@@ -13,6 +13,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var businesses: NSMutableArray = [] //business list
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar.delegate = self
@@ -22,30 +24,33 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         let query = PFQuery(className: "Business")
-        var dataNames: NSMutableArray? = NSMutableArray()
-        var dataIds: NSMutableArray? = NSMutableArray()
+        var data: NSMutableArray? = []
         if(searchText != "") {
             query.whereKey("keywords", containedIn: [searchText]).findObjectsInBackgroundWithBlock { (objects, error) -> Void in
                 if let objects = objects {
                     for o in objects {
-                        print(o.objectForKey("name"))
-                        print(o.objectId)
-                        // o is an entry in the Follow table
-                        // to get the user, we get the object with the to key
-                        var businessName: String = o.objectForKey("name") as? String ?? ""
-                        var businessId: String? = o.objectId
-                        dataNames!.addObject(businessName)
-                        if(businessId != nil){
-                            dataIds!.addObject(businessId!)
-                        }
+                        data!.addObject(o)
+                    }
+                    if(data != []) {
+                        self.businesses = data!
+                        self.tableView.reloadData()
+                        println(data)
                     }
                 }
-                println(dataNames)
-                println(dataIds)
             }
-            print("\(searchBar.text)")
         }
     }
     
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return businesses.count
+    }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Business Cell", forIndexPath: indexPath) as! UITableViewCell
+        
+        let business: Business = businesses[indexPath.row] as! Business
+        cell.textLabel!.text = business.name
+
+        return cell
+    }  
 }

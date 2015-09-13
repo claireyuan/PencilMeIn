@@ -24,8 +24,6 @@ class ScheduleViewController: UITableViewController {
         
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .MediumStyle
-        
-        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
