@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
         
         if( segue.identifier == "loginToBusiness") {
             let tabBarController = segue.destinationViewController as! UITabBarController
-            let svc = tabBarController.viewControllers?[1].viewControllers?[0] as! ScheduleViewController
+            let svc = tabBarController.viewControllers?[0].viewControllers?[0] as! ScheduleViewController
             svc.business = business
         }
     }

@@ -15,57 +15,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tfl-XI-fkA" kind="relationship" relationship="rootViewController" id="rg3-kS-Y5a"/>
+                        <segue destination="eY8-f5-G9k" kind="relationship" relationship="rootViewController" id="88C-4g-jgk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uu2-aZ-cgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="558" y="-1167"/>
-        </scene>
-        <!--Schedule-->
-        <scene sceneID="5T6-M5-gcj">
-            <objects>
-                <collectionViewController id="tfl-XI-fkA" customClass="ScheduleViewController" customModule="PencilMeIn" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DGn-MF-UDm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Vj-KD-4Le">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gae-Ub-zKB">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="tfl-XI-fkA" id="zva-gj-Rtt"/>
-                            <outlet property="delegate" destination="tfl-XI-fkA" id="bBR-VM-1Gr"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="gSE-u2-10c"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Schedule" id="Rzt-MY-fMi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="74F-TY-1u2">
-                            <connections>
-                                <action selector="addButton:" destination="tfl-XI-fkA" id="ndQ-dl-2Bm"/>
-                                <segue destination="Lr8-VW-Lch" kind="show" identifier="AddEvent" id="xGo-p7-YnD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xSE-2Q-aGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1364" y="-1161"/>
         </scene>
         <!--Add Event-->
         <scene sceneID="G6i-17-Iaw">
@@ -630,6 +585,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y4c-4Q-dZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-425" y="647"/>
+        </scene>
+        <!--Scheduler-->
+        <scene sceneID="Qy6-Y6-QHt">
+            <objects>
+                <tableViewController id="eY8-f5-G9k" customClass="ScheduleViewController" customModule="PencilMeIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DLj-1q-63K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Event Cell" textLabel="hif-2K-FXR" detailTextLabel="w7q-bT-15Y" style="IBUITableViewCellStyleSubtitle" id="QpG-xf-vTg">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QpG-xf-vTg" id="DfQ-5N-tqL">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hif-2K-FXR">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w7q-bT-15Y">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eY8-f5-G9k" id="1J9-uT-fUI"/>
+                            <outlet property="delegate" destination="eY8-f5-G9k" id="JkV-9h-y6a"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Scheduler" id="MYi-Wi-UME">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CWU-XC-4NL">
+                            <connections>
+                                <segue destination="Lr8-VW-Lch" kind="show" id="aH5-vU-K9q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QVD-9S-HTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1368" y="-1173"/>
         </scene>
     </scenes>
     <resources>
