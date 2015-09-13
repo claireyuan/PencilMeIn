@@ -20,16 +20,16 @@ class Business: PFObject, PFSubclassing {
         return newObj
     }
     
-    static func getUserConsumer(completion: (object: Business?) -> Void) {
+    static func getUserBusiness(completion: (object: Business?) -> Void) {
         var business: Business?
         let query = PFQuery(className: "Business")
         query.whereKey("user", equalTo: PFUser.currentUser()!).getFirstObjectInBackgroundWithBlock {
             (object: PFObject?, error: NSError?) -> Void in
             if object != nil {
-                println("Business.createConsumer: Huzzah!")
+                println("Business.createBusiness: Huzzah!")
                 business = object as? Business
             } else {
-                println("Business.createConsumer: Nuzzah.")
+                println("Business.createBusiness: Nuzzah.")
             }
         }
         completion(object: business)
