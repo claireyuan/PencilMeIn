@@ -43,7 +43,6 @@ class LoginViewController: UIViewController {
         serverController.logInUser(email, password: password, completionBlock: { user in
             
             if let realUser = user {
-                
                 Business.getFromServer { (object) -> Void in
                     if let business = object {
                         // we have a business
@@ -51,7 +50,17 @@ class LoginViewController: UIViewController {
                         
                     } else {
                         // we don't :(
-                        self.business = Business.createBusiness("Test Business", keywords: NSArray(array: ["placeholder", "professional", "fun"]), address: "This be the address")
+                        Consumer.getUserConsumer({ (object) -> Void in
+                            if let consumer = object {
+                                self.performSegueWithIdentifier("loginToConsumer", sender: sender)
+                            } else {
+                                let alert = UIAlertController(title: "Login Failed!", message: "You don't have a valid account.", preferredStyle: .Alert)
+                                
+                                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                                
+                                self.presentViewController(alert, animated: true, completion: nil)
+                            }
+                        })
                     }
                 }
                 

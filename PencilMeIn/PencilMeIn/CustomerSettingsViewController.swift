@@ -17,7 +17,7 @@ class CustomerSettingsViewController: UIViewController {
     
     @IBAction func saveClicked(sender: UIBarButtonItem) {
         
-        //check validity of userName
+        //check validity of Name
         
         
         //check validity of email

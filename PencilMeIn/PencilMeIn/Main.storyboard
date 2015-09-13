@@ -384,6 +384,7 @@
                     <connections>
                         <segue destination="hCe-G3-La6" kind="relationship" relationship="viewControllers" id="zhO-YR-7gc"/>
                         <segue destination="Eqt-2X-AZi" kind="relationship" relationship="viewControllers" id="CP6-8t-Ttl"/>
+                        <segue destination="naZ-F1-G1D" kind="show" identifier="loginToConsumer" id="Wi3-se-ZSM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pri-CG-jiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
