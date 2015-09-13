@@ -48,7 +48,7 @@ class Event: PFObject, PFSubclassing {
         super.init()
     }
     
-    func getFromServer(objectId: String!, completion: (object: Consumer?) -> Void) {
+    func getFromServer(objectId: String!, completion: (object: Event?) -> Void) {
         let query = PFQuery(className:"Business")
         var event: Event?
         query.getObjectInBackgroundWithId(objectId) {
