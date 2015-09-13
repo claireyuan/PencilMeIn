@@ -17,23 +17,8 @@ class CustomerSettingsViewController: UIViewController {
     
     @IBAction func saveClicked(sender: UIBarButtonItem) {
         
-        //check validity of name
-        var containsSpace: Bool = false
-        for character in nameTextField.text {
-            if character == " " {
-                containsSpace = true
-            }
-        }
+        //check validity of userName
         
-        if !containsSpace {
-            var alert = UIAlertController(title: "Please enter first and last name", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                self.nameTextField.text = ""
-            }))
-            
-            presentViewController(alert, animated: true, completion: nil)
-        }
         
         //check validity of email
         let emailCheck: [Character] = ["@","."]

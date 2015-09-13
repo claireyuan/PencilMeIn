@@ -5,48 +5,66 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--ScheduleNavigationViewController-->
-        <scene sceneID="YIs-Uc-rV2">
+        <!--Schedule-->
+        <scene sceneID="ERT-f0-ZYb">
             <objects>
-                <navigationController title="ScheduleNavigationViewController" id="MGL-Fh-fx3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RO5-kl-O2G"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aIZ-Ss-uRH">
+                <navigationController id="tAf-nH-GMz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" id="CJf-j4-Rv7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ppR-0m-WHQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="nvC-Nz-VfC"/>
+                        <segue destination="tfl-XI-fkA" kind="relationship" relationship="rootViewController" id="rg3-kS-Y5a"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mNQ-h9-HMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uu2-aZ-cgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="-1163"/>
+            <point key="canvasLocation" x="558" y="-1167"/>
         </scene>
-        <!--My Schedule-->
-        <scene sceneID="hNz-n2-bh7">
+        <!--Schedule-->
+        <scene sceneID="5T6-M5-gcj">
             <objects>
-                <viewController title="My Schedule" id="9pv-A4-QxB" customClass="ScheduleViewController" customModule="PencilMeIn" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
-                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                <collectionViewController id="tfl-XI-fkA" customClass="ScheduleViewController" customModule="PencilMeIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DGn-MF-UDm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" id="acW-dT-cKf"/>
-                    <navigationItem key="navigationItem" title="Schedule" id="xHV-GF-0nV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0zC-Gd-txC">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Vj-KD-4Le">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gae-Ub-zKB">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="tfl-XI-fkA" id="zva-gj-Rtt"/>
+                            <outlet property="delegate" destination="tfl-XI-fkA" id="bBR-VM-1Gr"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="gSE-u2-10c"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Schedule" id="Rzt-MY-fMi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="74F-TY-1u2">
                             <connections>
-                                <segue destination="5uU-FO-xfV" kind="presentation" id="3jG-jw-sY7"/>
+                                <segue destination="Lr8-VW-Lch" kind="show" id="xGo-p7-YnD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSE-2Q-aGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-1163"/>
+            <point key="canvasLocation" x="1364" y="-1161"/>
         </scene>
         <!--Add Event-->
         <scene sceneID="G6i-17-Iaw">
@@ -108,11 +126,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Event" id="ZVU-Od-XsV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jBh-ue-fwr">
-                            <connections>
-                                <action selector="cancel:" destination="Lr8-VW-Lch" id="UGz-S7-6h2"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="cje-vI-Ee9">
                             <connections>
                                 <action selector="save:" destination="Lr8-VW-Lch" id="uz7-pB-vBp"/>
@@ -127,23 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hg4-1y-JFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2792" y="-1169"/>
-        </scene>
-        <!--AddScheduleNavigationViewController-->
-        <scene sceneID="T0U-uq-DoU">
-            <objects>
-                <navigationController title="AddScheduleNavigationViewController" id="5uU-FO-xfV" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bis-Fw-wr6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Lr8-VW-Lch" kind="relationship" relationship="rootViewController" id="qpn-vM-iMy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="39O-sT-PKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2063" y="-1163"/>
+            <point key="canvasLocation" x="2078" y="-1161"/>
         </scene>
         <!--Item-->
         <scene sceneID="ax4-YM-1UZ">
@@ -490,8 +487,8 @@
                     </tabBar>
                     <connections>
                         <outlet property="searchDisplayController" destination="r4z-3e-jRy" id="M0g-PG-bU5"/>
-                        <segue destination="MGL-Fh-fx3" kind="relationship" relationship="viewControllers" id="vU4-UQ-myG"/>
                         <segue destination="8ZC-3L-v8Z" kind="relationship" relationship="viewControllers" id="7cM-nn-v4p"/>
+                        <segue destination="tAf-nH-GMz" kind="relationship" relationship="viewControllers" id="yIB-M1-vrb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -587,9 +584,12 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5g-mK-AQ6">
                                 <rect key="frame" x="205" y="179.5" width="94.5" height="30"/>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Register">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerClicked:" destination="naZ-F1-G1D" eventType="touchUpInside" id="wYA-Cl-Azp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PencilMeIn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZv-aH-QpX">
                                 <rect key="frame" x="26" y="60" width="548" height="29"/>
@@ -612,6 +612,11 @@
                                     <action selector="loginClicked:" destination="naZ-F1-G1D" eventType="touchUpInside" id="4i3-Nv-UDd"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPL-dr-J5i">
+                                <rect key="frame" x="176" y="252" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -636,6 +641,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="M5R-HU-a8M" id="R7s-vX-pPy"/>
                         <outlet property="passwordTextField" destination="Dhr-an-5l5" id="724-Ii-q1o"/>
+                        <outlet property="userNameTextField" destination="DPL-dr-J5i" id="Saz-pK-6tV"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="loginToBusiness" id="vsj-Eb-vbu"/>
                     </connections>
                 </viewController>

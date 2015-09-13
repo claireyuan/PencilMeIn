@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06023BEA1BA55E3300C14C34 /* MSCollectionViewCalendarLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 06023BE91BA55E3300C14C34 /* MSCollectionViewCalendarLayout.m */; };
 		067DF4611BA4DB88001C8261 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45C1BA4DB88001C8261 /* Business.swift */; };
 		067DF4631BA4DB88001C8261 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45D1BA4DB88001C8261 /* Consumer.swift */; };
 		067DF4651BA4DB88001C8261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45E1BA4DB88001C8261 /* Event.swift */; };
@@ -38,7 +37,6 @@
 		79566CB61BA4BCC80019947B /* pmi_appicon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */; };
 		7989190D1BA41B0900EFD5FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798919081BA41B0900EFD5FA /* Main.storyboard */; };
 		7989190E1BA41B0900EFD5FA /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798919091BA41B0900EFD5FA /* ScheduleViewController.swift */; };
-		7989190F1BA41B0900EFD5FA /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7989190A1BA41B0900EFD5FA /* EmployeeViewController.swift */; };
 		798919101BA41B0900EFD5FA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7989190B1BA41B0900EFD5FA /* SettingsViewController.swift */; };
 		798919111BA41B0900EFD5FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7989190C1BA41B0900EFD5FA /* Images.xcassets */; };
 		79F80A591BA46E70008DEBEE /* AppointmentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F80A581BA46E70008DEBEE /* AppointmentTableCell.swift */; };
@@ -86,7 +84,6 @@
 		79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmi_appicon_180x180.png; sourceTree = "<group>"; };
 		798919081BA41B0900EFD5FA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		798919091BA41B0900EFD5FA /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		7989190A1BA41B0900EFD5FA /* EmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
 		7989190B1BA41B0900EFD5FA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7989190C1BA41B0900EFD5FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		79F80A581BA46E70008DEBEE /* AppointmentTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentTableCell.swift; sourceTree = "<group>"; };
@@ -186,7 +183,6 @@
 				798919081BA41B0900EFD5FA /* Main.storyboard */,
 				798919091BA41B0900EFD5FA /* ScheduleViewController.swift */,
 				79566CB31BA4B5AC0019947B /* AddEventViewController.swift */,
-				7989190A1BA41B0900EFD5FA /* EmployeeViewController.swift */,
 				79347C271BA55A6F00978193 /* LoginViewController.swift */,
 				7989190B1BA41B0900EFD5FA /* SettingsViewController.swift */,
 				79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */,
@@ -345,7 +341,6 @@
 				067DF4671BA4DB88001C8261 /* PhoneParser.swift in Sources */,
 				067DF4631BA4DB88001C8261 /* Consumer.swift in Sources */,
 				06BC5B3D1BA411510093DF18 /* AppDelegate.swift in Sources */,
-				7989190F1BA41B0900EFD5FA /* EmployeeViewController.swift in Sources */,
 				7989190E1BA41B0900EFD5FA /* ScheduleViewController.swift in Sources */,
 				79347C261BA54DE300978193 /* MSCollectionViewCalendarLayout.m in Sources */,
 				067DF4651BA4DB88001C8261 /* Event.swift in Sources */,

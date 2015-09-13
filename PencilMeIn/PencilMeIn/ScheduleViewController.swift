@@ -11,19 +11,20 @@ import EventKit
 
 class ScheduleViewController: UICollectionViewController {
     
+    var business: Business!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Business.getFromServer { (object) -> Void in
-            if let business = object {
-                // we have a business
-            } else {
-                // we don't :(
-            }
-        }
+        
+        
+//        let collectionViewLayout = MSCollectionViewCalendarLayout()
+        
+//        self.collectionView!.collectionViewLayout = collectionViewLayout
     }
     
 
+    
 }
 
 

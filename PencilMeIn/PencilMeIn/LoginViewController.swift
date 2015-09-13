@@ -12,6 +12,17 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
+    
+    var business: Business!
+    
+    @IBAction func registerClicked(sender: UIButton) {
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        let username = userNameTextField.text
+        let serverController = ServerController()
+        serverController.signUpUser(username, password: password, email: email)
+    }
     
     @IBAction func loginClicked(sender: UIButton) {
         let email = emailTextField.text
@@ -21,9 +32,17 @@ class LoginViewController: UIViewController {
             
             if let realUser = user {
                 
-                //get business 
+                Business.getFromServer { (object) -> Void in
+                    if let business = object {
+                        // we have a business
+                        self.performSegueWithIdentifier("loginToBusiness", sender: sender)
+                        
+                    } else {
+                        // we don't :(
+                        self.business = Business.createBusiness("Test Business", keywords: NSArray(array: ["placeholder", "professional", "fun"]), address: "This be the address")
+                    }
+                }
                 
-                self.performSegueWithIdentifier("loginToBusiness", sender: sender)
             } else {
                 let alert = UIAlertController(title: "Login Failed!", message: "Your username or password is incorrect.", preferredStyle: .Alert)
                 
@@ -41,6 +60,8 @@ class LoginViewController: UIViewController {
         
         if( segue.identifier == "loginToBusiness") {
             let tabBarController = segue.destinationViewController as! UITabBarController
+            let svc = tabBarController.viewControllers?[0].viewControllers?[0] as! ScheduleViewController
+            svc.business = business
         }
     }
     
