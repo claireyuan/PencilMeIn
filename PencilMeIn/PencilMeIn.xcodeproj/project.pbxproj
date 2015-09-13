@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06023BEA1BA55E3300C14C34 /* MSCollectionViewCalendarLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 06023BE91BA55E3300C14C34 /* MSCollectionViewCalendarLayout.m */; };
 		067DF4611BA4DB88001C8261 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45C1BA4DB88001C8261 /* Business.swift */; };
 		067DF4631BA4DB88001C8261 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45D1BA4DB88001C8261 /* Consumer.swift */; };
 		067DF4651BA4DB88001C8261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DF45E1BA4DB88001C8261 /* Event.swift */; };
@@ -51,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06023BE81BA55E3300C14C34 /* MSCollectionViewCalendarLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCollectionViewCalendarLayout.h; sourceTree = "<group>"; };
+		06023BE91BA55E3300C14C34 /* MSCollectionViewCalendarLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollectionViewCalendarLayout.m; sourceTree = "<group>"; };
+		06023BEB1BA55E6E00C14C34 /* PencilMeIn-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PencilMeIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		067DF45C1BA4DB88001C8261 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		067DF45D1BA4DB88001C8261 /* Consumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
 		067DF45E1BA4DB88001C8261 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -106,6 +110,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06023BE61BA55E3300C14C34 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				06023BE71BA55E3300C14C34 /* MSCollectionViewCalendarLayout */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		06023BE71BA55E3300C14C34 /* MSCollectionViewCalendarLayout */ = {
+			isa = PBXGroup;
+			children = (
+				06023BE81BA55E3300C14C34 /* MSCollectionViewCalendarLayout.h */,
+				06023BE91BA55E3300C14C34 /* MSCollectionViewCalendarLayout.m */,
+			);
+			path = MSCollectionViewCalendarLayout;
+			sourceTree = "<group>";
+		};
 		067DF45B1BA4DB88001C8261 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,11 +183,13 @@
 				79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */,
 				7989190C1BA41B0900EFD5FA /* Images.xcassets */,
 				06BC5B471BA411510093DF18 /* LaunchScreen.xib */,
+				06023BE61BA55E3300C14C34 /* External */,
 				06BC5B3A1BA411510093DF18 /* Supporting Files */,
 				7912F05B1BA4515500758CE8 /* CustomerScheduleViewController.swift */,
 				7912F05F1BA451A600758CE8 /* CustomerSettingsViewController.swift */,
 				7912F0611BA451C900758CE8 /* CustomerMessagesViewController.swift */,
 				79F80A581BA46E70008DEBEE /* AppointmentTableCell.swift */,
+				06023BEB1BA55E6E00C14C34 /* PencilMeIn-Bridging-Header.h */,
 			);
 			path = PencilMeIn;
 			sourceTree = "<group>";
@@ -304,6 +327,7 @@
 				06BC5B3D1BA411510093DF18 /* AppDelegate.swift in Sources */,
 				7989190F1BA41B0900EFD5FA /* EmployeeViewController.swift in Sources */,
 				7989190E1BA41B0900EFD5FA /* ScheduleViewController.swift in Sources */,
+				06023BEA1BA55E3300C14C34 /* MSCollectionViewCalendarLayout.m in Sources */,
 				067DF4651BA4DB88001C8261 /* Event.swift in Sources */,
 				067DF4611BA4DB88001C8261 /* Business.swift in Sources */,
 				798919101BA41B0900EFD5FA /* SettingsViewController.swift in Sources */,
@@ -448,6 +472,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PencilMeIn/PencilMeIn-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -465,6 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PencilMeIn/PencilMeIn-Bridging-Header.h";
 			};
 			name = Release;
 		};

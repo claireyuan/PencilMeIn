@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class ScheduleViewController: UIViewController {
+class ScheduleViewController: UICollectionViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -19,8 +19,14 @@ class ScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let collectionViewLayout = MSCollectionViewCalendarLayout()
+        
+        self.collectionView!.collectionViewLayout = collectionViewLayout
+        UICollectionViewCell.alloc()
+        UICollectionReusableView.alloc()
     }
     
+
 }
 
 
