@@ -2,16 +2,12 @@ import Foundation
 import Parse
 
 class ServerController {
-    func signUpUser(username: String, password: String, email: String) {
+    func signUpUser(username: String, password: String, email: String) -> Bool {
         var user = PFUser()
         user.username = username
         user.password = password
         user.email = email
-        if(user.signUp()) {
-            println("Huzzah!")
-        } else {
-            println("Nuzzah!")
-        }
+        return user.signUp()
     }
     
     
@@ -27,15 +23,9 @@ class ServerController {
     
     
     func logInUser(username: String, password: String) {
-        PFUser.enableRevocableSessionInBackground()
-        PFUser.logInWithUsernameInBackground(username, password:password) {
-            (user: PFUser?, error: NSError?) -> Void in
-            if user != nil {
-                println("Huzzah!")
-            } else {
-                println(error?.description)
-            }
-        }
+        let error = NSErrorPointer()
+        PFUser.logInWithUsername(username, password:password, error: error)
+        println("Current user = \(PFUser.currentUser())")
     }
     
     //TODO: Add session-saving functionality

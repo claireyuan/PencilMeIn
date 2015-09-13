@@ -2,6 +2,7 @@ import Foundation
 import Parse
 
 class Business: PFObject, PFSubclassing {
+    @NSManaged var user: PFUser
     @NSManaged var name: String
     @NSManaged var keywords: NSArray
     @NSManaged var address: String
@@ -11,44 +12,30 @@ class Business: PFObject, PFSubclassing {
 //    @NSManaged var maxReschedules: Int
 //    @NSManaged var restrictPeriodHours: Int
     
-    @NSManaged var id: String
-    @NSManaged var user: PFUser
-    
-    init (name: String!, keywords: NSArray, address: String!/*, usersNeedApproval: Bool!, maxReschedules: Int, restrictPeriodHours: Int*/) {
-        super.init()
-        self.name = name
-        self.keywords = keywords
-        self.address = address
-        self.user = PFUser.currentUser()!
-//        self.usersNeedApproval = usersNeedApproval
-//        self.approvedUsers = NSArray(array: [String()])
-//        self.bannedUsers = NSArray(array: [String()])
-//        self.maxReschedules = maxReschedules
-//        self.restrictPeriodHours = restrictPeriodHours
+    static func createBusiness(name: String!, keywords: NSArray, address: String!/*, usersNeedApproval: Bool!, maxReschedules: Int, restrictPeriodHours: Int*/) -> Business {
+        var newObj = Business()
+        newObj.user = PFUser.currentUser()!
+        newObj.name = name
+        newObj.keywords = keywords
+        newObj.address = address
+        return newObj
     }
     
-    init (objectId: String!) {
-        super.init()
-        getFromServer(objectId)
-    }
-
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
+    func getUserBusiness() -> Business {
+        var business: Business? = nil
+        let query = PFQuery(className: "Business")
+        query.whereKey("user", equalTo: PFUser.currentUser()!).getFirstObjectInBackgroundWithBlock {
+            (object: PFObject?, error: NSError?) -> Void in
+            if object != nil {
+                println("Business.createBusiness: Huzzah!")
+                business = object as? Business
+            } else {
+                println("Business.createBusiness: Nuzzah.")
+                business = Business()
+            }
         }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+        return business!
     }
-
-    static func parseClassName() -> String {
-        return "Business"
-    }
-    
-    ///////////////////////////////////////
-    ///////////////////////////////////////
-    ///////////////////////////////////////
-    ///////////////////////////////////////
     
     func getEvents() -> NSArray {
         var query: PFQuery = PFQuery(className: "BusinessEventJoinTable")
@@ -69,44 +56,28 @@ class Business: PFObject, PFSubclassing {
     }
     
     func addEvent(event: Event) {
+        event.saveInBackground()
         let joinTable = PFObject(className: "BusinessEventJoinTable")
         joinTable.setObject(self, forKey: "business")
         joinTable.setObject(event, forKey: "event")
         joinTable.saveInBackground()
     }
     
-    func getIdAsUser() {
-        user = PFUser.currentUser()!
-        let idQuery = PFQuery(className: "Business")
-        println(idQuery.whereKey("user", equalTo: user).getFirstObject())
+    override init() {
+        super.init()
+        name = ""
+        keywords = [""]
+        address = ""
     }
     
-
-    
-    ///////////////////////////////////////
-    ///////////////////////////////////////
-    ///////////////////////////////////////
-    ///////////////////////////////////////
-    
-    //User get from server
-    func getFromServer() {
-        let user = PFUser.currentUser()
-        var query: PFQuery = PFQuery(className: "Business")
-        query.whereKey("user", equalTo: user!)
-        var retVal: String = String()
-        query.findObjectsInBackgroundWithBlock{
-            (objects: [AnyObject]?, error: NSError?) -> Void in
-            if let objects = objects {
-                for o in objects {
-                    // o is an entry in the Follow table
-                    // to get the user, we get the object with the to key
-                    retVal = o.objectForKey("objectId") as! String
-                    break
-                }
-            }
-        }
-        getFromServer(retVal)
+    func load (objectId: String!) {
+        getFromServer(objectId)
     }
+    
+    ///////////////////////////////////////
+    ///////////////////////////////////////
+    ///////////////////////////////////////
+    ///////////////////////////////////////
     
     //Fetch from search
     func getFromServer(objectId: String!) {
@@ -131,8 +102,6 @@ class Business: PFObject, PFSubclassing {
 //                self.bannedUsers = bannedUsers
 //                self.maxReschedules = maxReschedules
 //                self.restrictPeriodHours = restrictPeriodHours
-                
-                self.id = objectId
             } else {
                 println(error)
             }
@@ -144,9 +113,25 @@ class Business: PFObject, PFSubclassing {
         self.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-                println("Huzzah!")
+                println("Business.putToServer: Huzzah!")
+            } else {
+                println("Business.putToServer: Nuzzah")
             }
         }
+    }
+    
+    
+    //Private class functions
+    override class func initialize() {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
+            self.registerSubclass()
+        }
+    }
+    static func parseClassName() -> String {
+        return "Business"
     }
     
 }
