@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //For creating user accounts, look at these functions:
         //////////////////////////////////////////////////////////////////////////////
-        client.logInUser("test", password: "pass")
+        //client.logInUser("test", password: "pass")
         
         
         //while(PFUser.currentUser() == nil) {}

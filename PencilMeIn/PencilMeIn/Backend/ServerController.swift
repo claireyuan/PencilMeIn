@@ -22,10 +22,13 @@ class ServerController {
     
     
     
-    func logInUser(username: String, password: String) {
-        let error = NSErrorPointer()
-        PFUser.logInWithUsername(username, password:password, error: error)
-        println("Current user = \(PFUser.currentUser())")
+    func logInUser(username: String, password: String, completionBlock: (PFUser?) -> Void) {
+        
+        PFUser.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
+            
+            
+            completionBlock(user)
+        }
     }
     
     //TODO: Add session-saving functionality

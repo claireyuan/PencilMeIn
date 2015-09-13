@@ -62,23 +62,28 @@ class Business: PFObject, PFSubclassing {
         joinTable.saveInBackground()
     }
     
-    func getFromServer(objectId: String!, completion: (object: Business?) -> Void) {
+    static func getFromServer(completion: (object: Business?) -> Void) {
+        
         let query = PFQuery(className: "Business")
-        var business: Business?
-        query.getObjectInBackgroundWithId(objectId) {
-            (object: PFObject?, error: NSError?) -> Void in
+        query.whereKey("user", equalTo: PFUser.currentUser()!)
+        
+        query.getFirstObjectInBackgroundWithBlock { object, error in
+            
+            let business: Business?
+            
             if error == nil && object != nil {
                 println("success")
                 business = object as? Business
             } else {
                 println("error")
+                business = nil
             }
+            
+            completion(object: business)
         }
-        completion(object: business)
     }
     
     func putToServer(completion: (object: Business) -> Void) {
-        var user = PFUser.currentUser()!
         self.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
@@ -86,8 +91,9 @@ class Business: PFObject, PFSubclassing {
             } else {
                 println("Business.putToServer: Nuzzah")
             }
+            
+            completion(object: self)
         }
-        completion(object: self)
     }
     
     //Private class functions

@@ -32,6 +32,7 @@
 		7912F0621BA451C900758CE8 /* CustomerMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912F0611BA451C900758CE8 /* CustomerMessagesViewController.swift */; };
 		79347C221BA5433300978193 /* pmi_login_live.png in Resources */ = {isa = PBXBuildFile; fileRef = 79347C211BA5433300978193 /* pmi_login_live.png */; };
 		79347C261BA54DE300978193 /* MSCollectionViewCalendarLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 79347C251BA54DE300978193 /* MSCollectionViewCalendarLayout.m */; };
+		79347C281BA55A6F00978193 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79347C271BA55A6F00978193 /* LoginViewController.swift */; };
 		79566CB41BA4B5AC0019947B /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79566CB31BA4B5AC0019947B /* AddEventViewController.swift */; };
 		79566CB61BA4BCC80019947B /* pmi_appicon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */; };
 		7989190D1BA41B0900EFD5FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798919081BA41B0900EFD5FA /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		79347C211BA5433300978193 /* pmi_login_live.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmi_login_live.png; sourceTree = "<group>"; };
 		79347C241BA54DE300978193 /* MSCollectionViewCalendarLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCollectionViewCalendarLayout.h; sourceTree = "<group>"; };
 		79347C251BA54DE300978193 /* MSCollectionViewCalendarLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollectionViewCalendarLayout.m; sourceTree = "<group>"; };
+		79347C271BA55A6F00978193 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79566CB31BA4B5AC0019947B /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmi_appicon_180x180.png; sourceTree = "<group>"; };
 		798919081BA41B0900EFD5FA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				798919091BA41B0900EFD5FA /* ScheduleViewController.swift */,
 				79566CB31BA4B5AC0019947B /* AddEventViewController.swift */,
 				7989190A1BA41B0900EFD5FA /* EmployeeViewController.swift */,
+				79347C271BA55A6F00978193 /* LoginViewController.swift */,
 				7989190B1BA41B0900EFD5FA /* SettingsViewController.swift */,
 				79566CB51BA4BCC80019947B /* pmi_appicon_180x180.png */,
 				7989190C1BA41B0900EFD5FA /* Images.xcassets */,
@@ -328,6 +331,7 @@
 				067DF4691BA4DB88001C8261 /* ServerController.swift in Sources */,
 				79F80A591BA46E70008DEBEE /* AppointmentTableCell.swift in Sources */,
 				7912F0601BA451A600758CE8 /* CustomerSettingsViewController.swift in Sources */,
+				79347C281BA55A6F00978193 /* LoginViewController.swift in Sources */,
 				7912F0621BA451C900758CE8 /* CustomerMessagesViewController.swift in Sources */,
 				79566CB41BA4B5AC0019947B /* AddEventViewController.swift in Sources */,
 				7912F05C1BA4515500758CE8 /* CustomerScheduleViewController.swift in Sources */,
