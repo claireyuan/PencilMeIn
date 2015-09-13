@@ -7,6 +7,10 @@ class Event: PFObject, PFSubclassing {
     @NSManaged var startTime: NSDate
     @NSManaged var endTime: NSDate
     
+    override init () {
+        super.init()
+    }
+    
     static func createEvent(title: String!, employeeName: String!, startTime: NSDate!, endTime: NSDate!) -> Event {
         var newObj: Event = Event()
         newObj.title = title
@@ -42,10 +46,6 @@ class Event: PFObject, PFSubclassing {
             }
         }
         completion(object: retVal)
-    }
-    
-    override init () {
-        super.init()
     }
     
     func getFromServer(objectId: String!, completion: (object: Event?) -> Void) {

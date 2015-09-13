@@ -7,6 +7,10 @@ class Consumer: PFObject, PFSubclassing {
     @NSManaged var email: String
     @NSManaged var phone: String
     
+    override init() {
+        super.init()
+    }
+    
     static func createConsumer (fullName: String!, email: String!, phone: String!) -> Consumer {
         var newObj: Consumer = Consumer()
         newObj.user = PFUser.currentUser()!
@@ -56,10 +60,6 @@ class Consumer: PFObject, PFSubclassing {
         joinTable.setObject(self, forKey: "consumer")
         joinTable.setObject(event, forKey: "event")
         joinTable.saveInBackground()
-    }
-    
-    override init() {
-        super.init()
     }
     
     func getFromServer(objectId: String!, completion: (object: Consumer?) -> Void) {

@@ -7,6 +7,10 @@ class Business: PFObject, PFSubclassing {
     @NSManaged var keywords: NSArray
     @NSManaged var address: String
     
+    override init() {
+        super.init()
+    }
+
     static func createBusiness(name: String!, keywords: NSArray, address: String!) -> Business {
         var newObj = Business()
         newObj.user = PFUser.currentUser()!
@@ -56,10 +60,6 @@ class Business: PFObject, PFSubclassing {
         joinTable.setObject(self, forKey: "business")
         joinTable.setObject(event, forKey: "event")
         joinTable.saveInBackground()
-    }
-    
-    override init() {
-        super.init()
     }
     
     func getFromServer(objectId: String!, completion: (object: Business?) -> Void) {
