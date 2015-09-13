@@ -56,7 +56,8 @@
                     <navigationItem key="navigationItem" title="Schedule" id="Rzt-MY-fMi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="74F-TY-1u2">
                             <connections>
-                                <segue destination="Lr8-VW-Lch" kind="show" id="xGo-p7-YnD"/>
+                                <action selector="addButton:" destination="tfl-XI-fkA" id="ndQ-dl-2Bm"/>
+                                <segue destination="Lr8-VW-Lch" kind="show" identifier="AddEvent" id="xGo-p7-YnD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -313,33 +314,13 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Appointments" image="calendar" id="wGp-bM-Ljw"/>
                     <navigationItem key="navigationItem" title="My Appointments" id="1QE-XG-hny">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="abb-0W-GRe">
-                            <connections>
-                                <segue destination="wDq-jT-mHn" kind="presentation" id="lSh-Tc-Mp5"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="abb-0W-GRe"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zc5-3r-sQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1390" y="962"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pmW-VY-FN0">
-            <objects>
-                <navigationController id="wDq-jT-mHn" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KAp-rv-3aG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="cDB-ao-CSA" kind="relationship" relationship="rootViewController" id="B1I-cv-wQg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ajf-6P-cD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2063" y="962"/>
         </scene>
         <!--Search for Business-->
         <scene sceneID="6ji-vF-p2N">
@@ -388,7 +369,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2708" y="962"/>
+            <point key="canvasLocation" x="2192" y="962"/>
         </scene>
         <!--CustomerTabBarController-->
         <scene sceneID="eyd-ZY-hxE">
@@ -487,8 +468,8 @@
                     </tabBar>
                     <connections>
                         <outlet property="searchDisplayController" destination="r4z-3e-jRy" id="M0g-PG-bU5"/>
-                        <segue destination="8ZC-3L-v8Z" kind="relationship" relationship="viewControllers" id="7cM-nn-v4p"/>
                         <segue destination="tAf-nH-GMz" kind="relationship" relationship="viewControllers" id="yIB-M1-vrb"/>
+                        <segue destination="8ZC-3L-v8Z" kind="relationship" relationship="viewControllers" id="7cM-nn-v4p"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -565,7 +546,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M5R-HU-a8M">
-                                <rect key="frame" x="205" y="99.5" width="189" height="30"/>
+                                <rect key="frame" x="205" y="99" width="189" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="9OP-kA-lrt"/>
                                     <constraint firstAttribute="height" constant="30" id="EJi-Oj-SO2"/>
@@ -574,7 +555,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dhr-an-5l5">
-                                <rect key="frame" x="205" y="139.5" width="189" height="30"/>
+                                <rect key="frame" x="205" y="139" width="189" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="PEn-hI-0S5"/>
                                     <constraint firstAttribute="height" constant="30" id="f2z-jm-LNx"/>
@@ -583,7 +564,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5g-mK-AQ6">
-                                <rect key="frame" x="205" y="179.5" width="94.5" height="30"/>
+                                <rect key="frame" x="205" y="179" width="94.5" height="30"/>
                                 <state key="normal" title="Register">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -597,14 +578,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-rE-v2E">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-rE-v2E">
                                 <rect key="frame" x="26" y="30" width="548" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1I-q5-h72">
-                                <rect key="frame" x="300" y="179.5" width="94.5" height="30"/>
+                                <rect key="frame" x="300" y="179" width="94.5" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -612,7 +593,7 @@
                                     <action selector="loginClicked:" destination="naZ-F1-G1D" eventType="touchUpInside" id="4i3-Nv-UDd"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPL-dr-J5i">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPL-dr-J5i">
                                 <rect key="frame" x="176" y="252" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

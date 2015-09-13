@@ -16,13 +16,25 @@ class LoginViewController: UIViewController {
     
     var business: Business!
     
-    @IBAction func registerClicked(sender: UIButton) {
-        let email = emailTextField.text
-        let password = passwordTextField.text
-        let username = userNameTextField.text
-        let serverController = ServerController()
-        serverController.signUpUser(username, password: password, email: email)
-    }
+//    @IBAction func registerClicked(sender: UIButton) {
+//        let email = emailTextField.text
+//        let password = passwordTextField.text
+//        let username = userNameTextField.text
+//        let serverController = ServerController()
+//        serverController.signUpUser(username, password: password, email: email)
+//        
+//        Business.getFromServer { (object) -> Void in
+//            if let business = object {
+//                // we have a business
+//                self.performSegueWithIdentifier("loginToBusiness", sender: sender)
+//                
+//            } else {
+//                // we don't :(
+//                self.business = Business.createBusiness("Test Business", keywords: NSArray(array: ["placeholder", "professional", "fun"]), address: "This be the address")
+//            }
+//        }
+//
+//    }
     
     @IBAction func loginClicked(sender: UIButton) {
         let email = emailTextField.text

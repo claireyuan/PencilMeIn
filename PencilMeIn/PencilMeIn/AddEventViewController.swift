@@ -15,6 +15,8 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     
+    var business: Business!
+    
     @IBAction func eventNameChanged(sender: UITextField) {
         var eventName: String = sender.text
         

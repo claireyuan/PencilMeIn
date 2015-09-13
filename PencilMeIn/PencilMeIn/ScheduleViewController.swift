@@ -13,6 +13,15 @@ class ScheduleViewController: UICollectionViewController {
     
     var business: Business!
 
+    @IBAction func addButton(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("addEvent", sender: sender)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let nextView = segue.destinationViewController as! AddEventViewController
+        nextView.business = business
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
