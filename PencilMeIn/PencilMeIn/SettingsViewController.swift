@@ -11,10 +11,19 @@ import UIKit
 class SettingsViewController: UIViewController {
     
      // MARK: Properties
+    @IBOutlet weak var businessNameTextField: UITextField!
+    @IBOutlet weak var keyWordsTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+//        businessNameTextField.text = getNameFromServer()
+//        var keyWordsString: String
+//        for keyword in getKeywordArrayFromServer() {
+//            keyWordsString = keyWordsString + keyword + ", "
+//        }
+//        keyWordsTextField.text = keyWordsString
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,33 +31,44 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func businessNameChanged(sender: UITextField) {
-        var businessName: String = sender.text
+    @IBAction func saveClicked(sender: UIBarButtonItem) {
         
-        if businessName == "" {
+        // Check legitimacy of business name
+        if businessNameTextField.text == "" {
             var alert = UIAlertController(title: "Must input business name", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                sender.text = ""
-            }))
+                }))
             
             presentViewController(alert, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func keyWordsEdited(sender: UITextField) {
-        var keyWords: [String] = sender.text.componentsSeparatedByString(",")
-        
-        var i = 0
-        while i < keyWords.count {
-            keyWords[i] = keyWords[i].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+
+        // tokenize keywords
+        if keyWordsTextField.text == "" {
+            var alert = UIAlertController(title: "Must input keywords", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                }))
+                
+            presentViewController(alert, animated: true, completion: nil)
+        } else {
+            var keyWords: [String] = keyWordsTextField.text.componentsSeparatedByString(",")
+            
+            var i = 0
+            while i < keyWords.count {
+                keyWords[i] = keyWords[i].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            }
         }
+        
+        keyWordsTextField.resignFirstResponder()
+        businessNameTextField.resignFirstResponder()
+        
+        // TODO: send to server
+        
     }
     
-    @IBAction func rescheduleNumberChanged(sender: UISlider) {
-    }
-    
-    @IBAction func rescheduleTimeLimitChanged(sender: UISlider) {
+    @IBAction func undoClicked(sender: UIBarButtonItem) {
+        viewDidLoad()
     }
 }
 

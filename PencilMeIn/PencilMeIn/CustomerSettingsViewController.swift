@@ -10,11 +10,16 @@ import UIKit
 
 class CustomerSettingsViewController: UIViewController {
     
-    @IBAction func fullNameEntered(sender: UITextField) {
-        var fullName: String = sender.text
+    // MARK: Properties
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    
+    @IBAction func saveClicked(sender: UIBarButtonItem) {
         
+        //check validity of name
         var containsSpace: Bool = false
-        for character in fullName {
+        for character in nameTextField.text {
             if character == " " {
                 containsSpace = true
             }
@@ -24,19 +29,16 @@ class CustomerSettingsViewController: UIViewController {
             var alert = UIAlertController(title: "Please enter first and last name", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                sender.text = ""
+                self.nameTextField.text = ""
             }))
             
             presentViewController(alert, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func emailEntered(sender: UITextField) {
-        var email: String = sender.text
         
+        //check validity of email
         let emailCheck: [Character] = ["@","."]
         var i = 0
-        for character in email {
+        for character in emailTextField.text {
             if i < emailCheck.count && character == emailCheck[i] {
                 i++
             }
@@ -46,29 +48,36 @@ class CustomerSettingsViewController: UIViewController {
             var alert = UIAlertController(title: "Invalid Email Address", message: "Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                sender.text = ""
+                self.emailTextField.text = ""
             }))
             
             presentViewController(alert, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func phoneEntered(sender: UITextField) {
-        var phone: String = sender.text
-        if (NSString(string: phone).length != 10) {
+        
+        //check validity of phone number
+        if (NSString(string: phoneTextField.text).length != 10) {
             var alert = UIAlertController(title: "Invalid Phone Number", message: "Please enter 10 digits.", preferredStyle: UIAlertControllerStyle.Alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-               sender.text = ""
+                self.phoneTextField.text = ""
             }))
             
             presentViewController(alert, animated: true, completion: nil)
         }
+
+
+    }
+    
+    @IBAction func undoClicked(sender: UIBarButtonItem) {
+        viewDidLoad()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+//        nameTextField.text = getNameFromServer()
+//        emailTextField.text = getEmailFromServer()
+//        phoneTextField.text = getPhoneFromServer()
     }
     
     override func didReceiveMemoryWarning() {
