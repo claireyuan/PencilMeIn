@@ -25,8 +25,11 @@ class ServerController {
     func logInUser(username: String, password: String, completionBlock: (PFUser?) -> Void) {
         
         PFUser.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
-            
-            
+            if(error == nil && user != nil) {
+                println("success logging in")
+            } else {
+                println("no login")
+            }
             completionBlock(user)
         }
     }

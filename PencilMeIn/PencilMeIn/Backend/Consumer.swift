@@ -25,14 +25,15 @@ class Consumer: PFObject, PFSubclassing {
         let query = PFQuery(className: "Consumer")
         query.whereKey("user", equalTo: PFUser.currentUser()!).getFirstObjectInBackgroundWithBlock {
             (object: PFObject?, error: NSError?) -> Void in
-            if object != nil {
+            if let a = object {
                 println("Consumer.createConsumer: Huzzah!")
                 consumer = object as? Consumer
             } else {
                 println("Consumer.createConsumer: Nuzzah.")
             }
+            completion(object: consumer)
         }
-        completion(object: consumer)
+        
     }
     
     func getEvents(completion: (object: NSArray?) -> Void) {
