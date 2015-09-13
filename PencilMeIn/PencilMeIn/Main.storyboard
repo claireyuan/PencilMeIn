@@ -310,7 +310,11 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Appointments" image="calendar" id="wGp-bM-Ljw"/>
                     <navigationItem key="navigationItem" title="My Appointments" id="1QE-XG-hny">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="abb-0W-GRe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="abb-0W-GRe">
+                            <connections>
+                                <segue destination="cDB-ao-CSA" kind="show" id="n3v-4G-uYw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -321,7 +325,7 @@
         <!--Search for Business-->
         <scene sceneID="6ji-vF-p2N">
             <objects>
-                <tableViewController id="cDB-ao-CSA" sceneMemberID="viewController">
+                <tableViewController id="cDB-ao-CSA" customClass="SearchTableViewController" customModule="PencilMeIn" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dvJ-Kj-WxY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,6 +355,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search for Business" id="CU6-CX-49W"/>
                     <connections>
+                        <outlet property="searchBar" destination="8ea-Rs-rZi" id="wn3-b7-c4x"/>
                         <outlet property="searchDisplayController" destination="K3N-pf-rMu" id="iAL-kh-YCW"/>
                     </connections>
                 </tableViewController>
@@ -380,7 +385,6 @@
                     <connections>
                         <segue destination="hCe-G3-La6" kind="relationship" relationship="viewControllers" id="zhO-YR-7gc"/>
                         <segue destination="Eqt-2X-AZi" kind="relationship" relationship="viewControllers" id="CP6-8t-Ttl"/>
-                        <segue destination="naZ-F1-G1D" kind="show" identifier="loginToConsumer" id="Wi3-se-ZSM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pri-CG-jiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -665,6 +669,7 @@
                         <outlet property="passwordTextField" destination="Dhr-an-5l5" id="724-Ii-q1o"/>
                         <outlet property="userNameTextField" destination="DPL-dr-J5i" id="Saz-pK-6tV"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="loginToBusiness" id="vsj-Eb-vbu"/>
+                        <segue destination="Xze-7e-3MN" kind="show" identifier="loginToConsumer" id="oBv-Ti-UDT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y4c-4Q-dZI" userLabel="First Responder" sceneMemberID="firstResponder"/>

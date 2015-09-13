@@ -46,12 +46,15 @@ class LoginViewController: UIViewController {
                 Business.getFromServer { (object) -> Void in
                     if let business = object {
                         self.business = business
-                        
+                        self.performSegueWithIdentifier("loginToBusiness", sender: sender)
+
                     } else {
                         // we don't :(
-                        Consumer.getUserConsumer({ (object) -> Void in
+                        Consumer.getUserConsumer { (object) -> Void in
+                            println(object)
                             if let consumer = object {
                                 self.performSegueWithIdentifier("loginToConsumer", sender: sender)
+                                println("loginconsumer")
                             } else {
                                 let alert = UIAlertController(title: "Login Failed!", message: "You don't have a valid account.", preferredStyle: .Alert)
                                 
@@ -59,10 +62,9 @@ class LoginViewController: UIViewController {
                                 
                                 self.presentViewController(alert, animated: true, completion: nil)
                             }
-                        })
+                        }
                     }
-                    self.performSegueWithIdentifier("loginToBusiness", sender: sender)
-
+                    
                 }
                 
             } else {
