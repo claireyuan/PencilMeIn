@@ -14,16 +14,36 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var businessNameTextField: UITextField!
     @IBOutlet weak var keyWordsTextField: UITextField!
     
+    var business: Business!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        businessNameTextField.text = getNameFromServer()
-//        var keyWordsString: String
-//        for keyword in getKeywordArrayFromServer() {
-//            keyWordsString = keyWordsString + keyword + ", "
-//        }
-//        keyWordsTextField.text = keyWordsString
-        
+        Business.getFromServer { (object) -> Void in
+            if let business = object {
+                // we have a business
+                self.businessNameTextField.text = business.name
+                self.business = business
+                var keyWordsString: String = ""
+                
+                for keyword in business.keywords {
+                    keyWordsString = keyWordsString + (keyword as! String) + ", "
+                }
+                self.keyWordsTextField.text = keyWordsString
+                
+            } else {
+                // we don't :(
+                self.business = Business.createBusiness("Test Business", keywords: NSArray(array: ["placeholder", "professional", "fun"]), address: "This be the address")
+                
+                self.businessNameTextField.text = self.business.name
+                var keyWordsString: String = ""
+                
+                for keyword in self.business.keywords {
+                    keyWordsString = keyWordsString + (keyword as! String) + ", "
+                }
+                self.keyWordsTextField.text = keyWordsString
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,6 +61,8 @@ class SettingsViewController: UIViewController {
                 }))
             
             presentViewController(alert, animated: true, completion: nil)
+        } else {
+            business.name = businessNameTextField.text
         }
 
         // tokenize keywords
@@ -57,13 +79,16 @@ class SettingsViewController: UIViewController {
             var i = 0
             while i < keyWords.count {
                 keyWords[i] = keyWords[i].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                i++
             }
+            business.keywords = keyWords
         }
         
         keyWordsTextField.resignFirstResponder()
         businessNameTextField.resignFirstResponder()
         
-        // TODO: send to server
+        business.putToServer { (object) -> Void in
+        }
         
     }
     
